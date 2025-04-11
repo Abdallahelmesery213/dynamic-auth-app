@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-root',
@@ -9,5 +11,6 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'dynamic-auth-app';
+  title = 'Abdallah Elmesery | Jumppeak_Task ';
+ 
 }
