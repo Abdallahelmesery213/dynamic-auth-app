@@ -1,16 +1,16 @@
 <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
   <div *ngFor="let field of config">
-    <label>{{ field.label }}</label>
+    <label>{{ field.label }} <span *ngIf="field.required" class="required">*</span></label>
     <input
       [type]="field.type"
       [formControlName]="field.name"
       [placeholder]="field.label"
       class="form-control"
     />
-    <div *ngIf="form.get(field.name)?.invalid && form.get(field.name)?.touched" class="error">
+    <div *ngIf="form.get(field.name)?.invalid && form.get(field.name)?.touched" class="error alert alert-danger" role="alert">
       {{ field.label }} is required
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary mt-2">Submit</button>
 </form>

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { DynamicFormComponent } from '../../../shared/components/dynamic-form/dynamic-form.component';
 import { FormFieldConfig } from '../../../shared/models/form-field-config.model';
 import { UserService } from '../../../core/services/user.service';
-// import { ToastService } from '../../../core/services/toast.service'; // Optional for feedback
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -22,16 +22,17 @@ export class LoginComponent {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   onLogin(formData: any) {
     const success = this.userService.login(formData.email, formData.password);
     if (success) {
-      alert('Login Successful!');
+      this.toastr.success('Login Successful!');
       this.router.navigate(['/dashboard']);
     } else {
-      alert('Invalid credentials');
+      this.toastr.error('Invalid credentials');
     }
   }
 }

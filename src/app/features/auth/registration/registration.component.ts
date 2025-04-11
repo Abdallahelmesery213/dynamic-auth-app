@@ -4,6 +4,7 @@ import { FormFieldConfig } from '../../../shared/models/form-field-config.model'
 import { DynamicFormComponent } from '../../../shared/components/dynamic-form/dynamic-form.component';
 import { UserService } from '../../../core/services/user.service';
 import { RouterModule } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registration',
@@ -23,10 +24,11 @@ export class RegistrationComponent {
     { name: 'dob', label: 'Date of Birth', type: 'date' },
   ];
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private toastr: ToastrService) {}
 
   onRegister(formData: any) {
     this.userService.register(formData);
+    this.toastr.success('Register Successful!');
   }
   
 }
