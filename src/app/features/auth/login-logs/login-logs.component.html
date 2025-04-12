@@ -1,15 +1,17 @@
-<h3>Login Logs</h3>
-<table class="table table-bordered">
-    <thead>
-    <tr>
-        <th>Email</th>
-        <th>Login Time</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let log of loginLogs()">
-        <td>{{ log.email }}</td>
-        <td>{{ log.timestamp }}</td>
-    </tr>
-    </tbody>
-</table>
+<div class="container">
+    <h3>Login Logs</h3>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Email</th>
+            <th scope="col">Login Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let log of loginLogs()">
+            <td>{{ log.email }}</td>
+            <td>{{ log.timestamp }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

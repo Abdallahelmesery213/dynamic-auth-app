@@ -1,41 +1,43 @@
-<h2>Registered Users</h2>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>DOB</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users()">
-      <ng-container *ngIf="editingUserId === user.id; else viewMode">
-        <td><input [(ngModel)]="editModel.name" /></td>
-        <td><input [(ngModel)]="editModel.email" /></td>
-        <td><input [(ngModel)]="editModel.address" /></td>
-        <td><input [(ngModel)]="editModel.phone" /></td>
-        <td><input [(ngModel)]="editModel.dob" type="date" /></td>
-        <td>
-          <button (click)="saveEdit()">💾 Save</button>
-          <button (click)="cancelEdit()">❌ Cancel</button>
-        </td>
-      </ng-container>
-
-      <ng-template #viewMode>
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.address }}</td>
-        <td>{{ user.phone }}</td>
-        <td>{{ user.dob }}</td>
-        <td>
-          <button (click)="editUser(user)">✏️ Edit</button>
-          <button (click)="deleteUser(user.id)">🗑 Delete</button>
-        </td>
-      </ng-template>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <h3>Registered Users</h3>
+  
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users()">
+        <ng-container *ngIf="editingUserId === user.id; else viewMode">
+          <td><input [(ngModel)]="editModel.name" /></td>
+          <td><input [(ngModel)]="editModel.email" /></td>
+          <td><input [(ngModel)]="editModel.address" /></td>
+          <td><input [(ngModel)]="editModel.phone" /></td>
+          <td><input [(ngModel)]="editModel.dob" type="date" /></td>
+          <td>
+            <button (click)="saveEdit()">💾 Save</button>
+            <button (click)="cancelEdit()">❌ Cancel</button>
+          </td>
+        </ng-container>
+  
+        <ng-template #viewMode>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.dob }}</td>
+          <td>
+            <button (click)="editUser(user)">✏️ Edit</button>
+            <button (click)="deleteUser(user.id)">🗑 Delete</button>
+          </td>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
+</div>
