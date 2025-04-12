@@ -15,14 +15,14 @@
     <tbody>
       <tr *ngFor="let user of users()">
         <ng-container *ngIf="editingUserId === user.id; else viewMode">
-          <td><input [(ngModel)]="editModel.name" /></td>
-          <td><input [(ngModel)]="editModel.email" /></td>
-          <td><input [(ngModel)]="editModel.address" /></td>
-          <td><input [(ngModel)]="editModel.phone" /></td>
-          <td><input [(ngModel)]="editModel.dob" type="date" /></td>
-          <td>
-            <button (click)="saveEdit()">💾 Save</button>
-            <button (click)="cancelEdit()">❌ Cancel</button>
+          <td><input class="form-control" [(ngModel)]="editModel.name" /></td>
+          <td><input class="form-control" [(ngModel)]="editModel.email" /></td>
+          <td><input class="form-control" [(ngModel)]="editModel.address" /></td>
+          <td><input class="form-control" [(ngModel)]="editModel.phone" /></td>
+          <td><input class="form-control" [(ngModel)]="editModel.dob" type="date" /></td>
+          <td class="btns">
+            <button (click)="saveEdit()" class="btn btn-success"><span class="me-1">💾</span> Save</button>
+            <button (click)="cancelEdit()" class="btn btn-danger"><span class="me-1">❌</span> Cancel</button>
           </td>
         </ng-container>
   
@@ -32,9 +32,9 @@
           <td>{{ user.address }}</td>
           <td>{{ user.phone }}</td>
           <td>{{ user.dob }}</td>
-          <td>
-            <button (click)="editUser(user)">✏️ Edit</button>
-            <button (click)="deleteUser(user.id)">🗑 Delete</button>
+          <td class="btns">
+            <button (click)="editUser(user)" class="btn btn-success"><span class="me-1">✏️</span> Edit</button>
+            <button (click)="deleteUser(user.id)" class="btn btn-danger" ><span class="me-1">🗑</span> Delete</button>
           </td>
         </ng-template>
       </tr>
